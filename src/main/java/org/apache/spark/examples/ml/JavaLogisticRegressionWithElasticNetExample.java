@@ -29,7 +29,7 @@ public class JavaLogisticRegressionWithElasticNetExample {
   public static void main(String[] args) {
     SparkSession spark = SparkSession
       .builder()
-      .appName("JavaLogisticRegressionWithElasticNetExample")
+      .appName("JavaLogisticRegressionWithElasticNetExample").config("spark.master","local[*]")
       .getOrCreate();
 
     // $example on$
@@ -48,6 +48,7 @@ public class JavaLogisticRegressionWithElasticNetExample {
     // Print the coefficients and intercept for logistic regression
     System.out.println("Coefficients: "
       + lrModel.coefficients() + " Intercept: " + lrModel.intercept());
+    System.out.println("pridictioncol=="+lrModel.getPredictionCol());
 
     // We can also use the multinomial family for binary classification
     LogisticRegression mlr = new LogisticRegression()

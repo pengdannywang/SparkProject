@@ -40,6 +40,7 @@ public final class JavaWordCount {
     SparkSession spark = SparkSession
       .builder()
       .appName("JavaWordCount")
+      .config("spark.master","local[*]")
       .getOrCreate();
 
     JavaRDD<String> lines = spark.read().textFile(args[0]).javaRDD();

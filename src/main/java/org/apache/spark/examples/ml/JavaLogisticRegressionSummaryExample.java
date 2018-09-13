@@ -31,7 +31,7 @@ public class JavaLogisticRegressionSummaryExample {
   public static void main(String[] args) {
     SparkSession spark = SparkSession
       .builder()
-      .appName("JavaLogisticRegressionSummaryExample")
+      .appName("JavaLogisticRegressionSummaryExample").config("spark.master","local[*]")
       .getOrCreate();
 
     // Load training data

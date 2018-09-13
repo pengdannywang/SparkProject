@@ -90,7 +90,7 @@ public class JavaSparkSQLExample {
     SparkSession spark = SparkSession
       .builder()
       .appName("Java Spark SQL basic example")
-      .config("spark.some.config.option", "some-value")
+      .config("spark.master", "local[*]")
       .getOrCreate();
     // $example off:init_session$
 
@@ -104,7 +104,7 @@ public class JavaSparkSQLExample {
 
   private static void runBasicDataFrameExample(SparkSession spark) throws AnalysisException {
     // $example on:create_df$
-    Dataset<Row> df = spark.read().json("examples/src/main/resources/people.json");
+    Dataset<Row> df = spark.read().json("src/main/resources/people.json");
 
     // Displays the content of the DataFrame to stdout
     df.show();
